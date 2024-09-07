@@ -1,0 +1,22 @@
+services:
+
+    kamailio:
+      build: ./kamailio
+      command: -de
+      volumes:
+        - ./kamailio:/etc/kamailio
+
+    uas:
+      build: ./kamailio
+      command: -de
+      volumes:
+        - ./uas:/etc/kamailio
+
+    sipp:
+      build: ./kamailio
+      entrypoint: sh
+      working_dir: /sipp
+      tty: true
+      volumes:
+        - ./sipp:/sipp
+
